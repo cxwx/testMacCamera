@@ -4,9 +4,6 @@ set(CMAKE_MACOSX_RPATH 1)
 
 project(opencvTest)
 
-#find_package(ROOT REQUIRED COMPONENTS Core RIO Net Hist Graf Graf3d Gpad Tree Rint Postscript Matrix Physics MathCore Thread dl Minuit TreePlayer)
-#include(${ROOT_USE_FILE})
-
 find_package(OpenCV REQUIRED COMPONENTS opencv_core opencv_highgui opencv_imgproc opencv_videoio)
 message(STATUS "OpenCV library status:")
 message(STATUS "version: ${OpenCV_VERSION}")
@@ -21,11 +18,7 @@ link_directories(
 	)
 
 
-#add_definitions("-DDLIB_NO_GUI_SUPPORT=OFF")
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDLIB_NO_GUI_SUPPORT=OFF")
-
 set(LINK_LIBS
-	#${ROOT_LIBRARIES}
 	${OpenCV_LIBS}
 	dlib::dlib
 	X11 pthread
